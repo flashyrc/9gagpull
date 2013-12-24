@@ -32,6 +32,7 @@ def getImages(pagenum):
 	if pagenum == 0:
 		gagurls.append('http://9gag.com')
 	else:
+		#below url may change and you may have to sniff some http (when 9gag loads on demand) to get the correct cloudfront service url
 		r2 = requests.get('http://d24w6bsrhbeh9d.cloudfront.net/read/ajax-featured?pageType=hot&page=' + str(pagenum) + '&callback=data', proxies=proxies)
 		x = json.loads(r2.text[5:][0:-2])
 		for y in x['result']:
